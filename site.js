@@ -1,7 +1,9 @@
-'use strict';
+import { qrcode } from './vendor/qrcode.mjs';
 
 const appLink = document.getElementById('app-link');
 const appStatus = document.getElementById('app-status');
+const appQR = document.getElementById('app-qr');
+const appQRImage = document.getElementById('app-qr-image');
 const expoInput = document.getElementById('expo-url');
 const shareResult = document.getElementById('share-result');
 const shareInput = document.getElementById('share-url');
@@ -23,15 +25,21 @@ function parseLaunchURL(value) {
 }
 
 function showLaunchURL(url) {
+  const qr = qrcode(0, 'M');
+  qr.addData(url);
+  qr.make();
+  appQRImage.src = qr.createDataURL(4, 16);
+  appQR.hidden = false;
   appLink.href = url;
   appLink.hidden = false;
-  appStatus.textContent = 'SDK 57対応のExpo Goを入れたiPhoneで、このボタンをタップしてください。PCで見ている場合は、このページのURLをiPhoneに送って開きます。配布者の開発サーバーが起動している必要があります。';
+  appStatus.textContent = 'SDK 57対応のExpo Goを入れたiPhoneで、QRを読み取るか、このボタンをタップしてください。配布者の開発サーバーが起動している必要があります。';
   shortcutURL.value = url;
   shortcutLaunch.hidden = false;
   shortcutNote.textContent = '下の起動URLをコピーして、ショートカットの「URL」アクションに貼り付けてください。';
 }
 
-const initialValue = new URL(window.location.href).searchParams.get('app');
+const initialValue = new URL(window.location.href).searchParams.get('app')
+  ?? document.querySelector('meta[name="expo-launch-url"]')?.content;
 if (initialValue) {
   const launchURL = parseLaunchURL(initialValue);
   if (launchURL) {
