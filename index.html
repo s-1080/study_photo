@@ -50,7 +50,7 @@
       <div class="section-heading"><div><p class="eyebrow">GET STARTED · iPHONE</p><h2 id="start-title">まずは、ここから。</h2></div><p>Expo Goで開く、ソースコード版。<br>App Store配布のStudyPhotoではありません。</p></div>
       <div class="start-panel">
         <p class="platform-label">iPhone / Expo SDK 57</p>
-        <p class="platform-note">現在のStudyPhotoは <strong>Expo SDK 57</strong>です。iPhoneにSDK 57対応のExpo Goを入れて使います。</p>
+        <p class="platform-note">この案内ページはSafariやChromeで開けます。閲覧に追加アプリやVPNは不要です。<br>撮影アプリ本体は <strong>Expo SDK 57</strong>版です。使うにはiPhoneにSDK 57対応のExpo Goを入れてください。</p>
         <ol class="setup-steps">
           <li><span class="step-number">1</span><div><h3>Expo Goを入れる</h3><p>App StoreからExpo Goをインストール。すでに入っている場合も、SDK 57対応版に更新してください。</p><a class="button secondary" href="https://apps.apple.com/app/expo-go/id984023095" target="_blank" rel="noopener noreferrer">App StoreでExpo Goを入れる <span aria-hidden="true">↗</span></a><small>Expo GoとStudyPhotoのSDKバージョンが合っている必要があります。</small></div></li>
           <li><span class="step-number">2</span><div><h3>StudyPhotoを開く</h3><p>配布者から受け取ったExpoのQRコードを、iPhoneの標準カメラで読み取り、通知をタップしてExpo Goで開きます。起動リンク付きのページなら、下のボタンからも開けます。</p><a id="app-link" class="button primary" hidden>iPhoneのExpo Goで開く <span aria-hidden="true">↗</span></a><p id="app-status" class="inline-note" role="status">このページには起動リンクが設定されていません。配布者からExpoのQRコードか、起動リンク付きのページを受け取ってください。自分で起動する手順は下の「PCから起動・共有する人へ」にあります。</p><small>配布者の開発サーバーが起動している間だけ開けます。LAN接続ではPCとiPhoneを同じWi-Fiにつないでください。</small></div></li>
@@ -67,7 +67,7 @@
           <a class="button secondary" href="./downloads/StudyPhoto.zip" download="StudyPhoto.zip">アプリ一式をダウンロード <span class="file-label">ZIP</span><span aria-hidden="true">↓</span></a>
           <p class="small-text">現在のSDK 57版ソースコードです。スマホにZIPを入れるだけでは動きません。PCとiPhoneを同じWi-Fiにつなぎ、表示されたQRコードをiPhoneの標準カメラで読み取ってください。使用中はPCと開発サーバーを起動したままにします。</p>
           <h3 class="share-heading">友達に送るページを作る</h3>
-          <p>このサイトを静的ホスティングに公開してから、Expoの起動URL（<code>exp://…</code>）を貼り付けてください。別のWi-Fiにいる友達には、<code>npx expo start --tunnel</code>で表示されるURLを使います。初回はトンネル用ツールの導入確認が出る場合があります。</p>
+          <p>Expoの起動URL（<code>exp://…</code>）を下の欄に貼り付けて共有リンクを作り、友達に送ってください。この公開ページを見るための追加アプリやVPNは不要ですが、撮影にはExpo Goが必要です。別のWi-Fiにいる友達には、<code>npx expo start --tunnel</code>で表示されるURLを使います。初回はトンネル用ツールの導入確認が出る場合があります。</p>
           <form id="share-form">
             <label for="expo-url">Expoの起動URL</label>
             <div class="share-input-row"><input id="expo-url" name="expo-url" type="text" inputmode="url" placeholder="exp://192.168.1.10:8081" autocomplete="off" spellcheck="false" required aria-describedby="share-help"><button class="button primary" type="submit">共有リンクを作る</button></div>
