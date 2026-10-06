@@ -18,7 +18,7 @@ function parseLaunchURL(value) {
   try {
     const url = new URL(value.trim());
     if (!['exp:', 'exps:'].includes(url.protocol) || !url.hostname || url.username || url.password) return null;
-    return url.href;
+    return url.href.length <= 2048 ? url.href : null;
   } catch {
     return null;
   }
