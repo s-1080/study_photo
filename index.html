@@ -6,7 +6,7 @@
   <meta name="description" content="iPhoneで板書やスライドを撮影し、アプリ内に一時保存。StudyPhotoの起動手順と、プレビュー・コピー・写真への保存・削除の使い方。">
   <meta name="theme-color" content="#f7f8f2">
   <meta name="robots" content="noindex, nofollow, noarchive">
-  <meta name="expo-launch-url" content="exp://kgtakfa-s0915-8081.exp.direct">
+  <meta name="expo-launch-url" content="exp://kgtakfa-anonymous-8082.exp.direct">
   <title>StudyPhoto — 授業の写真をすっきり</title>
   <link rel="stylesheet" href="./styles.css">
   <script src="./site.js" type="module"></script>
@@ -65,11 +65,11 @@
         <summary>PCから起動・共有する人へ <span aria-hidden="true">＋</span></summary>
         <div class="distributor-body">
           <h3>アプリ一式をダウンロード</h3>
-          <p>ZIPをすべて展開して、<code>study_photo</code>フォルダを開きます。Windows / Mac / LinuxのPCに<a href="https://nodejs.org/ja/download" target="_blank" rel="noopener noreferrer">Node.js（22.13以降）</a>を入れ、そのフォルダでターミナルを開いて <code>npm ci</code> → <code>npm start</code> を実行してください。</p>
+          <p>ZIPをすべて展開して、<code>study_photo</code>フォルダを開きます。Windows / Mac / LinuxのPCに<a href="https://nodejs.org/ja/download" target="_blank" rel="noopener noreferrer">Node.js（22.13以降）</a>を入れ、そのフォルダでターミナルを開いて <code>npm ci</code> → <code>npm run share</code> を実行してください。</p>
           <a class="button secondary" href="./downloads/StudyPhoto.zip" download="StudyPhoto.zip">アプリ一式をダウンロード <span class="file-label">ZIP</span><span aria-hidden="true">↓</span></a>
-          <p class="small-text">現在のSDK 57版ソースコードです。スマホにZIPを入れるだけでは動きません。PCとiPhoneを同じWi-Fiにつなぎ、表示されたQRコードをiPhoneの標準カメラで読み取ってください。使用中はPCと開発サーバーを起動したままにします。</p>
+          <p class="small-text">現在のSDK 57版ソースコードです。スマホにZIPを入れるだけでは動きません。表示されたQRコードをiPhoneの標準カメラで読み取ってください。共有用サーバーは配布者のExpoアカウントを使わずに起動し、別のWi-Fiからも接続できます。使用中はPCと開発サーバーを起動したままにします。</p>
           <h3 class="share-heading">友達に送るページを作る</h3>
-          <p>Expoの起動URL（<code>exp://…</code>）を下の欄に貼り付けて共有リンクを作り、友達に送ってください。この公開ページを見るための追加アプリやVPNは不要ですが、撮影にはExpo Goが必要です。別のWi-Fiにいる友達には、<code>npx expo start --tunnel</code>で表示されるURLを使います。初回はトンネル用ツールの導入確認が出る場合があります。</p>
+          <p>Expoの起動URL（<code>exp://…</code>）を下の欄に貼り付けて共有リンクを作り、友達に送ってください。この公開ページを見るための追加アプリやVPNは不要ですが、撮影にはExpo Goが必要です。配布者と同じExpoアカウントのログインを要求しない共有には、<code>npm run share</code>で表示されるURLを使います。</p>
           <form id="share-form">
             <label for="expo-url">Expoの起動URL</label>
             <div class="share-input-row"><input id="expo-url" name="expo-url" type="text" inputmode="url" placeholder="exp://192.168.1.10:8081" autocomplete="off" spellcheck="false" required aria-describedby="share-help"><button class="button primary" type="submit">共有リンクを作る</button></div>
@@ -123,7 +123,7 @@
       <div class="faq-list">
         <details><summary>iPhoneの「写真」にも自動で保存される？</summary><p>撮影しただけでは保存されません。プレビューの「写真に保存」、または一覧で選択して「カメラロールへ保存」を押した画像だけが、iPhoneの写真アプリに保存されます。</p></details>
         <details><summary>保存する写真の画質は？</summary><p>新しく撮る画像はJPEGの最高品質設定を使い、保存時にStudyPhoto側で縮小・再JPEG圧縮は行いません。ファイル容量は増える可能性があります。すでに保存した画像の画質は変わりません。画素数は端末や撮影処理に依存します。ピントや手ぶれ、強いズームによるぼやけは直せないため、文字を鮮明に撮るには倍率を抑え、ピントが合ってから撮影してください。</p></details>
-        <details><summary>Expo Goで開けないときは？</summary><p>iPhoneのExpo GoがSDK 57対応版か確認し、配布者に開発サーバーが起動中か確認してください。LANの起動URLはPCと同じWi-Fiが必要です。別のネットワークでは、配布者に <code>npx expo start --tunnel</code> で起動し、表示されたURLから共有リンクを作り直してもらってください。PCやサーバーを止めると開けなくなります。</p></details>
+        <details><summary>Expo Goで開けないときは？</summary><p>iPhoneのExpo GoがSDK 57対応版か確認し、配布者に開発サーバーが起動中か確認してください。「Sign in to Expo Go as …」と出る場合は、配布者が <code>npm run share</code> で起動し、新しいURLから共有リンクを作り直してください。配布者のアカウントでログインする必要はありません。古いリンクではなく、更新されたページのQRか起動ボタンから開き直します。LANの起動URLはPCと同じWi-Fiが必要です。PCやサーバーを止めると開けなくなります。</p></details>
         <details><summary>カメラや写真へのアクセスを断ってしまったら？</summary><p>iPhoneの「設定」でExpo Goのカメラ・写真の権限を確認して、許可してください。アプリに戻って撮影・保存をやり直します。専用のiOSビルドを使っている場合は、StudyPhotoの権限を確認してください。</p></details>
         <details><summary>アプリを閉じると写真は消える？</summary><p>閉じただけでは消えません。次の起動時に「前回の画像が残っています」と表示されます。見返したり保存したりしたい場合は「そのまま残す」、不要なら「削除して始める」を選んでください。授業が終わったら「授業終了 (全削除)」でも片づけられます。</p></details>
         <details><summary>写真はどこに置かれる？</summary><p>写真は端末内のアプリ専用領域に保存されます。StudyPhotoには写真をサーバーへアップロードする処理はありません。アプリの削除やExpo Goのデータ消去で失われるため、残したいものは写真アプリに書き出してください。</p></details>
