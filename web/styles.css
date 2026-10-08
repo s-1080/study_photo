@@ -41,12 +41,9 @@ h1 { font-size: clamp(38px, 4.7vw, 57px); font-weight: 750; letter-spacing: -2px
 .phone-top { height: 34px; display: flex; align-items: center; justify-content: space-between; padding: 0 13px; font-size: 9px; color: var(--ink); position: relative; z-index: 2; }
 .phone-island { width: 68px; height: 16px; border-radius: 10px; background: #080c09; }
 .phone-time { font-weight: 700; }
-.phone-app-header { position: absolute; top: 39px; left: 12px; right: 12px; display: flex; flex-direction: column; gap: 3px; }
+.phone-app-header { position: absolute; top: 39px; left: 12px; right: 12px; }
 .phone-app-header strong { font-size: 13px; letter-spacing: -.5px; }
-.phone-app-header > span { font-size: 5px; color: var(--muted); }
-.phone-toolbar { position: absolute; top: 80px; left: 12px; right: 12px; display: flex; justify-content: space-between; align-items: center; }
-.phone-toolbar > span:first-child { font-size: 5px; letter-spacing: 1px; color: var(--muted); }
-.phone-note { position: absolute; bottom: 17px; width: 100%; text-align: center; color: var(--muted); font-size: 5px; }
+.phone-toolbar { position: absolute; top: 80px; left: 12px; right: 12px; display: flex; justify-content: flex-end; align-items: center; }
 .camera-scene { position: absolute; inset: 115px 10px 160px; border-radius: 7px; background: linear-gradient(#d6d2b8 0 78%, #b5b193 78%); overflow: hidden; }
 .end-class { font-size: 7px; color: #b44339; background: #fbefec; border-radius: 5px; padding: 5px 8px; white-space: nowrap; }
 .blackboard { position: absolute; background: #355545; border: 6px solid #d1b991; top: 14px; left: 0; width: 185px; height: 135px; color: #e6e8ce; padding: 14px 10px; box-shadow: 0 8px 12px #26352725; }
@@ -61,9 +58,8 @@ h1 { font-size: clamp(38px, 4.7vw, 57px); font-weight: 750; letter-spacing: -2px
 .chalk-chart i:nth-child(3) { height: 30px; }
 .chalk-chart i:nth-child(4) { height: 42px; }
 .board-number { position: absolute; right: 13px; top: 12px; font-size: 7px; }
-.zoom-preview { position: absolute; bottom: 94px; left: 10px; right: 10px; padding: 6px 8px; background: #eef2e7; border: 1px solid var(--line); border-radius: 7px; }
-.zoom-preview-heading, .zoom-preview-range { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 5px; }
-.zoom-preview-heading strong { color: var(--green-dark); font-size: 8px; }
+.zoom-preview { position: absolute; bottom: 94px; left: 10px; right: 10px; padding: 0 8px; }
+.zoom-preview strong { display: block; text-align: right; color: var(--green-dark); font-size: 8px; }
 .zoom-preview-track { display: block; height: 2px; margin-block: 7px; border-radius: 2px; background: var(--line); position: relative; }
 .zoom-preview-track i { position: absolute; left: 0; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: white; box-shadow: 0 1px 3px #293d2620; }
 .camera-controls { position: absolute; bottom: 33px; left: 10px; right: 10px; height: 53px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; justify-items: center; }
@@ -125,7 +121,6 @@ form label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 8
 .guide-step { display: block; font-size: 10px; letter-spacing: 1.7px; color: var(--green); font-weight: 700; margin-bottom: 9px; }
 .guide-card h3 { font-size: 16px; }
 .guide-card p { font-size: 12px; color: var(--muted); margin: 11px 0 0; line-height: 1.9; }
-.guide-card .guide-tip { border-top: 1px solid #e7ebe2; padding-top: 12px; font-size: 11px; }
 .mini-board { width: 135px; height: 69px; background: #45664e; border: 4px solid #c9b692; color: #fff; padding: 10px 13px; font-size: 9px; position: absolute; top: 18px; }
 .mini-board span { display: block; width: 68px; height: 2px; background: #c8d4b5; margin-top: 7px; }
 .mini-board span:last-child { width: 45px; }
@@ -238,7 +233,6 @@ form label { display: block; font-size: 12px; font-weight: 600; margin-bottom: 8
   .guide-visual { height: 150px; margin-bottom: 20px; }
   .guide-card h3 { font-size: 17px; }
   .guide-card p { font-size: 13px; }
-  .guide-card .guide-tip { font-size: 12px; }
   .detail-grid { grid-template-columns: 1fr; gap: 16px; margin-top: 16px; }
   .detail-card { padding: 22px; }
   .detail-card p { font-size: 13px; }
