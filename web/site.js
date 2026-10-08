@@ -1,6 +1,6 @@
 import { qrcode } from './vendor/qrcode.mjs';
 
-const appURL = new URL('./app/', window.location.href);
+const appURL = new URL('./app/', import.meta.url);
 const appLink = document.getElementById('app-link');
 const shareInput = document.getElementById('share-url');
 const status = document.getElementById('share-status');
